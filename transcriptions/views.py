@@ -36,14 +36,22 @@ def search_transcriptions(request):
     # Apply filters based on the search terms
     if spoken_words:
         transcriptions = transcriptions.filter(
-            Q(customer_translation__icontains=spoken_words) |
-            Q(agent_translation__icontains=spoken_words)
+            Q(hindi_transcription__icontains=spoken_words) |
+            Q(english_transcription__icontains=spoken_words)|
+            Q(hindi_translation__icontains=spoken_words)|
+            Q(english_translation__icontains=spoken_words)|
+            Q(analysis_hindi__icontains=spoken_words)|
+            Q(analysis_english__icontains=spoken_words)
         )
 
     if add_words:
         transcriptions = transcriptions.filter(
-            Q(customer_translation__icontains=add_words) |
-            Q(agent_translation__icontains=add_words)
+            Q(hindi_transcription__icontains=add_words) |
+            Q(english_transcription__icontains=add_words)|
+            Q(hindi_translation__icontains=add_words)|
+            Q(english_translation__icontains=add_words)|
+            Q(analysis_hindi__icontains=add_words)|
+            Q(analysis_english__icontains=add_words)
         )
 
     # Serialize the filtered transcriptions
