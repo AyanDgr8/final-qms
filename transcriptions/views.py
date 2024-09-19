@@ -38,8 +38,8 @@ def search_transcriptions(request):
         transcriptions = transcriptions.filter(
             Q(hindi_transcription__icontains=spoken_words) |
             Q(english_transcription__icontains=spoken_words)|
-            Q(hindi_translation__icontains=spoken_words)|
-            Q(english_translation__icontains=spoken_words)|
+            # Q(hindi_translation__icontains=spoken_words)|
+            # Q(english_translation__icontains=spoken_words)|
             Q(analysis_hindi__icontains=spoken_words)|
             Q(analysis_english__icontains=spoken_words)
         )
@@ -48,8 +48,8 @@ def search_transcriptions(request):
         transcriptions = transcriptions.filter(
             Q(hindi_transcription__icontains=add_words) |
             Q(english_transcription__icontains=add_words)|
-            Q(hindi_translation__icontains=add_words)|
-            Q(english_translation__icontains=add_words)|
+            # Q(hindi_translation__icontains=add_words)|
+            # Q(english_translation__icontains=add_words)|
             Q(analysis_hindi__icontains=add_words)|
             Q(analysis_english__icontains=add_words)
         )
